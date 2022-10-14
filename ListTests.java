@@ -9,7 +9,7 @@ class someChecker implements StringChecker {
         this.str = str;
     }
     public boolean checkString(String s) {
-        return this.str.contains(s);
+        return this.str.equals(s);
     }
 }
 
@@ -20,7 +20,7 @@ public class ListTests {
         List<String> lstring = new ArrayList<>( );
         List<String> lstring1 = new ArrayList<>( );
         StringChecker sc = new someChecker();
-        lstring1 = ListExamples.filter(lstring, sc.checkString("e"));
+        lstring1 = ListExamples.filter(lstring, sc);
         assertEquals(lstring, lstring1);
     }
 
@@ -28,11 +28,10 @@ public class ListTests {
     public void testFilter2() {
         List<String> lstring = new ArrayList<>();
         List<String> lstring1 = new ArrayList<>();
-        lstring = lstring.add("apple");
-        lstring = lstring.add("banana");
+        lstring.add("apple");
+        lstring.add("banana");
         StringChecker sc = new someChecker();
-        lstring1 = ListExamples.filter(lstring, sc.checkString("e"));
-        lstring.remove("banana");
+        lstring1 = ListExamples.filter(lstring, sc);
         assertEquals(lstring, lstring1);
     }
 }
