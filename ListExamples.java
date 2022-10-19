@@ -12,7 +12,8 @@ class ListExamples {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        //bug fixed
+        result.add(s);
       }
     }
     return result;
